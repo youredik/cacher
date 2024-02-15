@@ -27,6 +27,8 @@ function handler($event, $context): array
 
     $s3->upload('parts', $cacheFile, json_encode($content), 'public-read');
 
+    print_r($content);
+
     return [
         'statusCode' => 200,
         'body' => '',
