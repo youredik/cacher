@@ -25,9 +25,7 @@ function handler($event, $context): array
         'region' => 'ru-central1',
     ]);
 
-//    $s3->upload('parts', $cacheFile, $content, 'public-read');
-
-    file_put_contents($cacheFile, json_encode($content));
+    $s3->upload('parts', $cacheFile, json_encode($content), 'public-read');
 
     return [
         'statusCode' => 200,
