@@ -25,7 +25,12 @@ function handler($event, $context): array
         'region' => 'ru-central1',
     ]);
 
-    $s3->upload('parts', $cacheFile, json_encode($content), 'public-read');
+    $s3->upload(
+        'parts',
+        dirname($objectId) . '/cache.json',
+        json_encode($content),
+        'public-read'
+    );
 
     print_r($content);
 
